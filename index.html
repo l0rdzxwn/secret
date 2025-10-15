@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+  <title>Happy Birthday!</title>
+  <style>
+    html{
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      padding:0;
+      font-family: Poppins, sans-serif;
+      background: #f9d3de;
+      color: #333;
+      text-align: center;
+      
+    }
+    .hero {
+      
+      background-image:url("hero_bg.JPG");
+      background-size:cover;
+      background-repeat: no-repeat;
+      background-position:center;
+      width:100vw;
+      height:100vh;
+      
+    }
+    .hero h1 {
+      position:relative;
+      top:5vh;
+      font-size: 2rem;
+      margin:0;
+      letter-spacing: 1vw;
+    }
+    
+    .hero p {
+      position:relative;
+      top:10vh;
+      left:3vw;
+      font-size: 1.2em;
+    }
+
+    #phone-title{
+      display:none;
+    }
+
+    #tags-title{
+      display:none;
+    }
+
+    .section {
+      padding: 8vh 5vw;
+      margin: 5vw auto;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      max-width: 90%;
+    }
+
+    .gallery img {
+      width: 90%;
+      height: auto;
+      margin: 2vh 0;
+      border-radius: 1em;
+    }
+
+    .list {
+      text-align: left;
+      max-width: 80%;
+      margin: auto;
+      font-size: 1.1em;
+    }
+    .button {
+      display: inline-block;
+      margin-top: 2em;
+      padding: 1em 2em;
+      background: #ff6f61;
+      color: white;
+      border-radius: 0.8em;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1em;
+    }
+
+    .button:hover {
+      background: #e55b50;
+    }
+
+    /* LETTER SECTION */
+    #message-title{
+      color:#e91e63;
+      font-size:3vw;
+      margin:0;
+      font-family:Poppins,serif;
+    }
+
+    #letter-section{
+      margin:0;
+      width:100vw;
+      height:90vh;
+      background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+      background-size:contain;
+      
+    }
+
+    #text-background{
+        border-radius:30px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        background-color:white;
+        width: 85%;
+        height: 70vh;
+    }
+
+    /* SECTION GALLERY */
+    #memory1{
+      margin:0;
+      filter:drop-shadow(5px 7px 5px rgba(0, 0, 0, 0.459))
+    }
+    #memory2{
+      margin:0;
+      filter:drop-shadow(5px 7px 5px rgba(0, 0, 0, 0.459))
+    }
+    #memory3{
+      margin:0;
+      filter:drop-shadow(5px 7px 5px rgba(0, 0, 0, 0.459))
+    }
+    #gallery{
+      color:#e91e63;
+      font-size: 6vw;
+    }
+    #gallery-section{
+      background: linear-gradient(135deg,#ffaac6 0%,#ffd8e5 100%,);
+      margin:0;
+    }
+    #gallery-background{
+      border-radius:30px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      width: 95%;
+      height: 70%;
+      padding-bottom:5%;
+      background-color: white;
+    }
+
+    /*THINGS I LOVE SECTION*/
+    .TILAY-background{
+      margin:0;
+      width: 80%;
+      height:90%;
+      border-radius:30px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      background-color:rgba(255, 255, 255, 0.858);
+    }    
+
+    #TILAY-section{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      width:100vw;
+      height:1250px;
+      padding-top:8%;
+      background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    }
+
+    .list ol li{
+      background-color:#FFFFFF;
+      margin:2%;
+      padding:2%;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.244);
+      list-style-type:none;
+      border-radius:25px;
+      font-size:1.1em;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease-in-out;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .list ol li:hover{
+      transform: translateX(20px);
+      background-color:#fb7aa5;
+      box-shadow: 0 10px 40px rgba(255, 105, 180, 0.4);
+    }
+
+    #list{
+      color:#e91e63;
+      font-size: 4vw;
+    }
+
+    /* Floating hearts animation */
+    @keyframes floatingHeart {
+      0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1) rotate(0deg);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(var(--x), -100px) scale(1.8) rotate(var(--rotate));
+      }
+    }
+
+    
+
+    .floating-heart {
+      position: absolute;
+      pointer-events: none;
+      font-size: 1.5rem;
+      animation: floatingHeart 1.5s ease-out forwards;
+    }
+
+    /*MEDIA QUERIES*/
+    @media (max-width: 1280px){
+      .hero {
+      
+      background-image:url("hero_bg_1280px.png");
+      background-size:cover;
+      background-repeat: no-repeat;
+      background-position:center;
+      width:100vw;
+      height:100vh;
+      
+    }
+    }
+
+    @media (max-width: 1024px){
+      .hero {
+      
+      background-image:url("hero_bg_1024px.png");
+      background-size:cover;
+      background-repeat: no-repeat;
+      background-position:center;
+      width:100vw;
+      height:100vh;
+      
+    }
+
+    #TILAY-section{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      width:100vw;
+      height:950px;
+      padding-top:8%;
+      background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    }
+
+    #message-title{
+      color:#e91e63;
+      font-size:5vw;
+      margin:0;
+      font-family:Poppins,serif;
+    }
+    }
+
+    @media (max-width: 760px){
+      .hero {
+      background-image:url("hero_bg_760px.PNG");
+      background-size:cover;
+      background-repeat: no-repeat;
+      background-position:center;
+      width:100vw;
+      height:100vh;
+      
+    }
+
+    .hero h1{
+      font-size:3vw;
+    }
+
+    #message-title{
+      color:#e91e63;
+      font-size:5vw;
+      margin:0;
+      padding-top:3vh;
+      font-family:Poppins,serif;
+    }
+
+    #phone-title{
+      display:block;
+      font-size:13vw;
+      font-family: 'Cormorant Garamond', serif;
+      margin-bottom:6vh;
+      font-weight:1;
+    }
+
+    #tags-title{
+      display:block;
+      font-size:3vw;
+      list-style:none;
+      display:flex;
+      gap:8vw;
+      padding:0;
+      justify-content:center;
+    }
+
+    #TILAY-section{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      width:100vw;
+      height:850px;
+      padding-top:8%;
+      background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    }
+    }
+    
+  </style>
+</head>
+<body>
+  
+  <div class="hero">
+    
+    <h1 id="birthday-title" class="hero-titles">H A P P Y B I R T H D A Y</h1>
+    <h1 id="phone-title" class="hero-titles">SHANADINE</h1>
+    
+      <ul id="tags-title">
+        <li>my baby</li>
+        <li>|</li>
+        <li>my wife</li>
+        <li>|</li>
+        <li>my love</li>
+      </ul>
+  </div>
+
+  <div class="section"  id="letter-section">
+    <div class ="section" id="text-background">   
+      <h2 id="message-title">✉ A Little Letter For You ✉</h2>
+      <p style="width:80%; font-size:1.2em; word-wrap: break-word;" id="message-content">Dear S,<br>
+        First of all, I wanna greet you a happiest birthday!! Thank you sooo much sa lahattt!! Kahit may ups and downs tayo, I still wanna thank you for staying with me kahit medyo marami akong pagkakamali at pagkukulang sayo ^^ Thank you for being my takbuhan sa oras ng kagipitann, You'll always there for me kaya thank you sayo babyy :3 You'll always be my wife and the only woman that i'll lovee!! Ikaw at ikaw pa rin ang pipiliin ko. Lagi akong Mananatili sayo baby koo :> Kahit anong mangyari ikaw parin ang Patutunguhan ko. Lastly, ikaw lang ang Sinderela ng buhay ko :> hehe I love you babyy! Even though things aren't perfect, I'm forever grateful that it's you I get to go through with it. I'll always love you, Thank you for staying, trying, being strong, and for being you.   
+      </p>
+    </div>
+      
+    </div>
+
+  <div class="section gallery" id="gallery-section">
+    <div id="gallery-background">
+      <h2 id="gallery">Our Memories</h2>
+      <img id="memory1" src="memories_set1.png" alt="Memory 1">
+      <img id="memory2" src="memories_set2.png" alt="Memory 2">
+      <img id="memory3" src="memories_set3.png" alt="Memory 3"> 
+    </div>
+  </div>
+
+  <div  id="TILAY-section">
+    <div class= "TILAY-background">
+      <h2 id="list">♡ 10 Things I Love About You ♡</h2>
+      <div class="list">
+        <ol>
+          <li>💖 Your beautiful and gorgeous smile (my favorite!)</li>
+          <li>💖 Your kindness and empathy lalo na sa ibang tao ^^</li>
+          <li>💖 Your cute laugh</li>
+          <li>💖 Your intelligence lalo sa acads B></li>
+          <li>💖 Your sweet loving hugs </li>
+          <li>💖 Your never ending support</li>
+          <li>💖 Your pasarap outfits :P</li>
+          <li>💖 Your pretty & CUTESY voice</li>
+          <li>💖 Your patience (HAHAHAHA seryoso)</li>
+          <li>💖 And especially for being YOU</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Always Yours</h2>
+    <p>Happy Birthday again, Gail. I'm sooooo lucky to have you in my life.</p>
+  </div>
+
+  <script>
+    // Floating hearts effect on hover
+    const listItems = document.querySelectorAll('.list ol li');
+
+    listItems.forEach(item => {
+      item.addEventListener('mouseenter', function(e) {
+        const rect = this.getBoundingClientRect();
+        
+        // Create 3 floating hearts with slight delays
+        for (let i = 0; i < 3; i++) {
+          setTimeout(() => {
+            const heart = document.createElement('span');
+            const hearts = ['💕', '💖', '💗', '💝', '❤️', '💓'];
+            heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.className = 'floating-heart';
+            
+            
+            const startX = Math.random() * 80 + 10;
+            heart.style.left = startX + '%';
+            heart.style.bottom = '50%';
+            
+           
+            const randomX = (Math.random() - 0.5) * 100; 
+            const randomRotate = (Math.random() - 0.5) * 60; 
+            heart.style.setProperty('--x', randomX + 'px');
+            heart.style.setProperty('--rotate', randomRotate + 'deg');
+            
+            this.appendChild(heart);
+            
+           
+            setTimeout(() => heart.remove(), 1500);
+          }, i * 200); 
+        }
+      });
+    });
+  </script>
+</body>
+</html>
